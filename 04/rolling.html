@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /* 이미지 72px+ 여백8px=80px*/
+      #frame {
+        width: 230px;
+        height: 88px;
+        position: relative;
+        margin: 10px auto;
+        border: 1px solid blue;
+        /* overflow: hidden; */
+      }
+      #banner {
+        list-style: none;
+        width: 480px;
+        border: 1px solid red;
+        height: 54px;
+        display: flex;
+        justify-content: space-between;
+      }
+      #banner li {
+        flex: 0 0 78px;
+        width: 78px;
+        height: 100%;
+        background-color: gray;
+        font-size: 2em;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script>
+      //document.addEventListener
+      // ("DOMContentloaded",function(){})
+      $(function () {
+        //변수
+        let list = $("#banner");
+        const show_num = 3;
+        const total = list.find("li").length;
+        const li_width = list.find("li").eq(0).width();
+        const copyObj = list.find("li").clone().css("background", "skyblue");
+        list.append(copyObj);
+
+        //슬라이드기능 구현시 번호를 저장할 변수를 먼저 만들어야 한다.
+        let num = 0;
+        $(".next").click(function () {
+          num++;
+          list.stop().animate({ "margin-left": -li_width*num });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Rolling</h1>
+    <div id="banner_wrap">
+      <div id="frame">
+        <ul id="banner">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <!-- <li>
+            <a href="#"><img src="https://picsum.photos/id/1/72/80" alt="사진1" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="https://picsum.photos/id/12/72/80" alt="사진2" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="https://picsum.photos/id/43/72/80" alt="사진3" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="https://picsum.photos/id/46/72/80" alt="사진4" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="https://picsum.photos/id/55/72/80" alt="사진5" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="https://picsum.photos/id/58/72/80" alt="사진6" /></a>
+          </li> -->
+        </ul>
+      </div>
+      <p>
+        <a href="#" class="prev">⏮</a>
+        <a href="#" class="next">⏭</a>
+      </p>
+    </div>
+  </body>
+</html>

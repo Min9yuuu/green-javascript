@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <script src='https://code.jquery.com/jquery-1.12.1.min.js'></script>
+</head>
+<body>
+  <div id="galleryWrap">
+    <h1>이미지갤러리</h1>
+    <p>
+      <!-- 버튼 -->
+      <!-- javascript:void(0): 자바스크립트에서 제어한다는 의미 -->
+      <a href="javascript:void(0)" onclick="prevGallery() ">⏪</a>
+      <!-- 이미지 -->
+      <img src="./images/img1.jpg" width="300" height="200" alt="" id="gallery">
+      <!-- 버튼 -->
+      <a href="javascript:void(0)" onclick="nextGallery() ">⏩</a>
+    </p>
+  </div>
+  <script src="./js/gallery.js"></script>
+</body>
+</html>
