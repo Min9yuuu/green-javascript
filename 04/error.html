@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rolling</title>
     <style>
-      *{
+      * {
         margin: 0;
         padding: 0;
       }
 
-      #frame{
+      #frame {
         /* img 72px 여백 8px 총 80px */
         width: 232px;
         height: 88px;
@@ -20,15 +20,14 @@
         border: 1px solid rgb(39, 39, 205);
         overflow: hidden;
       }
-      #banner{
+      #banner {
         width: 500px;
         height: 54px;
         border: 1px solid rgb(196, 39, 39);
         /* flex를 쓰면 자식박스의 너비가 제대로 잡히지 않아서 좌표값이 제대로 움직이지 않는다. */
         display: flex;
-
       }
-      #banner li{
+      #banner li {
         flex: 0 0 78px;
         list-style: none;
         width: 78px;
@@ -40,55 +39,56 @@
         margin-right: 1px;
       }
     </style>
-    <script src='https://code.jquery.com/jquery-1.12.1.min.js'></script>
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
     <script>
-      $(function(){
+      $(function () {
         //변수
-        let list = $("#banner");
-        const show_num = 3;
-        const total = list.find("li").length;
-        const li_width = list.find("li").eq(0).width();
-        const copyObj = list.find("li").clone().css("background", "gray");
+        let list = $("#banner"),
+          num = 0;
+        const show_num = 3,
+          total = list.find("li").length,
+          li_width = list.find("li").eq(0).width(),
+          copyObj = list.find("li").clone().css("background", "gray"),
+          ctrl = $(".ctrl");
         list.append(copyObj);
 
         //슬라이드기능 구현시 번호를 저장할 변수를 먼저 만들기.
-        let num = 0;
-        $(".next").click(function(){
-          if(num==total){
-            num=0;
-            list.css("margin-left",0);
+        $(".next").click(function () {
+          if (num == total) {
+            num = 0;
+            list.css("margin-left", 0);
           }
           num++;
-          list.stop().animate({"margin-left":-li_width*num},1000);
+          list.stop().animate({ "margin-left": -li_width * num }, 1000);
           return false;
         });
-        $(".prev").click(function(){
-          if(num==-total){
+        $(".prev").click(function () {
+          if (num == -total) {
             num = 0;
-            list.css("margin-left",0);
+            list.css("margin-left", 0);
           }
           num--;
-          list.stop().animate({"margin-left":li_width*num},1000);
-          return false
-        })
-        function autoPlay(){
-          if(num==total){
-            num=0;
-            list.css("margin-left",0);
+          list.stop().animate({ "margin-left": li_width * num }, 1000);
+          return false;
+        });
+        function autoPlay() {
+          if (num == total) {
+            num = 0;
+            list.css("margin-left", 0);
           }
           num++;
-          list.stop().animate({"margin-left":-li_width*num},1000);
+          list.stop().animate({ "margin-left": -li_width * num }, 1000);
         }
-        let auto = setInterval(autoPlay,1000);
-        let toggle = true;
-        $('.play').click(function(){
-          if(toggle){
+
+        let auto = setInterval(autoPlay, 1000);
+
+        ctrl.click(function () {
+          if (ctrl.text() === "stop") {
             clearInterval(auto);
-            toggle = false;
-          }
-          else{
-            auto = setInterval(autoPlay,1000);
-            toggle = true;
+            ctrl.text("start");
+          } else {
+            auto = setInterval(autoPlay, 1000);
+            ctrl.text("stop");
           }
         });
       });
@@ -104,7 +104,7 @@
       </ul>
     </div>
     <a href="#" class="prev">⏪</a>
-    <a href="#" class="play">⏯</a>
+    <a href="#" class="ctrl">stop</a>
     <a href="#" class="next">⏩</a>
   </body>
 </html>

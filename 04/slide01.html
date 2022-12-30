@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>slide btn</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html{
+      overflow-y: scroll;
+      width: 100%;
+      height: 100%;
+    }
+    ul{
+      list-style: none;
+    }
+    #brandVisual{
+      width: 100%;
+      height: 500px;
+      min-width: 1000px;
+      overflow:hidden;
+      background-color: #8c8c8c;
+      position: relative;
+    }
+    #brandVisual ul{
+      position: relative;
+      width: 100%;
+      height: 500px;
+      display: flex;
+    }
+    #brandVisual ul li{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      line-height: 500px;
+      font-size: 5em;
+    }
+    .visual_0{
+      left: 0%;
+      background-color: rgb(222, 250, 217);
+    }
+    .visual_1{
+      left: 100%;
+      background-color: rgb(167, 206, 222);
+    }
+    .visual_2{
+      left: 200%;
+      background-color: rgb(220, 220, 60);
+    }
+    #buttonList{
+      display: flex;
+      position: absolute;
+      top: 250px;
+      left: 50%;
+    }
+    #buttonList li{
+      width: 16px;
+      height: 16px;
+      background: url('./images/btn.png') no-repeat 0 0px;
+      margin:0 5px;
+    }
+    
+    #buttonList li.on{background-position: 0 -18px;}
+
+    </style>
+    <script src='https://code.jquery.com/jquery-1.12.1.min.js'></script>
+    <script src="./js/slide01.js"></script>
+</head>
+<body>
+  <div id="wrap">
+    <div id="brandVisual">
+      <ul>
+        <li class="visual_0">
+          <a href="#">배너이미지1</a>
+        </li>
+        <li class="visual_1">
+          <a href="#">배너이미지2</a>
+        </li>
+        <li class="visual_2">
+          <a href="#">배너이미지3</a>
+        </li>
+      </ul>
+    </div>
+    <ul id="buttonList">
+      <li class="on"></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</body>
+</html>
