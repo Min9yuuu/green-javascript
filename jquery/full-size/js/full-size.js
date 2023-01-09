@@ -9,7 +9,6 @@ $(function () {
     winH = $(window).innerHeight(),
     vidW = $("#main-video").innerWidth(),
     vidH = $("#main-video").innerHeight();
-    
   setInterval(videoResizeFn,100);
   // resize() : 윈도우 크기변경시 실행
   $(window).resize(function () {
