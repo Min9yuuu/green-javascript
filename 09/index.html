@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pointer script</title>
+  <style>
+    .cursor-sec{
+      width: 100%;
+      height: 150vh;
+      cursor: none;
+    }
+    #m1,#m3{
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      transition: all .5s ease-in-out;
+    }
+    #m2{
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      user-select: none;
+      pointer-events: none;
+      transition: all 2s ease-in  ;
+    }
+    #m3{
+      top: 300px;
+      left: 0px;
+      animation: rotate 2.5s infinite alternate;
+      animation-play-state:paused;
+    }
+    #m3.on{
+      animation-play-state:running;
+    }
+    @keyframes rotate {
+      0%{transform: perspective(200px) rotateY(0deg);}
+      50%{transform: perspective(200px) rotateY(180deg);}
+      100%{transform: perspective(200px) rotateY(360deg);}
+    }
+
+    #cursor{
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      z-index: 999999;
+      background-image: url('./img/4.jpeg');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 50%;
+      opacity: .5;
+      /* 선택이 안되게 막는다. */
+      user-select: none;
+      /* 기본 포인터 이벤트를 막는다. */
+      pointer-events: none;
+    }
+  </style>
+  <script src='https://code.jquery.com/jquery-1.12.1.min.js'></script>
+  <!-- <script src="./js/mouse.js" defer></script> -->
+  <!-- <script src="./js/mousejq.js"></script> -->
+</head>
+<body>
+  <section class="cursor-sec">
+    <div id="m1"><img src="./img/1.png" alt=""></div>
+    <div id="m2"><img src="./img/2.png" alt=""></div>
+    <div id="m3"><img src="./img/3.png" alt=""></div>
+    <div id="cursor"></div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur debitis suscipit, nobis odit provident eius autem eaque quam, quis doloremque ullam dolores distinctio, reprehenderit consequatur natus atque ex est ea!</p>
+  </section>
+  <script>
+    const cursor = document.querySelector("#cursor");
+    const cSize = window.getComputedStyle(cursor);
+    const m3 = document.querySelector("#m3");
+
+    window.addEventListener("mousemove",function(e){
+      let pointer = e;
+      const cP = [pointer.clientX,pointer.clientY];
+      const cS = [cSize.width.split("px",1),cSize.height.split("px",1)];
+
+      if(200<cP[1]<500&&500<cP[0]<1000){
+        m3.classList.add("on");
+      }
+      if(cP[1]<200||cP[1]>500||cp[0]>1000||500>cP[0]){
+        m3.classList.remove("on");
+      }
+      cursor.style.left=cP[0]+"px";
+      cursor.style.top=cP[1]+"px";
+      
+      cursor.style.marginLeft=-(cS[0]/2)+"px"
+      cursor.style.marginTop=-(cS[0]/2)+"px"
+    })
+  </script>
+</body>
+</html>
