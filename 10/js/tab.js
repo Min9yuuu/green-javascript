@@ -31,24 +31,33 @@
 let btn = document.querySelectorAll("ul li");
 let panel = document.querySelectorAll("h3");
 
-panel.forEach((el,idx) => {
-  unVisible(panel[idx]);
-});
-
+panelSel();
 visible(panel[0]);
 
-btn.forEach((el,bIdx) => {
-  btn[bIdx].addEventListener("click", function () {
-    panel.forEach((el,pIdx) => {
-      unVisible(panel[pIdx]);
-    });
-    visible(panel[bIdx]);
+btn.forEach((el,idx) => {
+  btn[idx].addEventListener("click",function(){
+    panelSel();
+    visible(panel[idx]);
   });
 });
+
+function panelSel(){
+  panel.forEach((el, idx) => {
+    unVisible(panel[idx]);
+  });
+}
+
+// function panelSel(){
+//   panel.forEach((el) => {
+//     el.style.display="none";
+//   });
+// }
 
 function visible(obj) {
   obj.style.display = "block";
 }
+
 function unVisible(obj) {
   obj.style.display = "none";
 }
+
