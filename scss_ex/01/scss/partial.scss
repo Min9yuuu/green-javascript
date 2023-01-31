@@ -1,0 +1,11 @@
+@import "base/base"; 
+@import "./mixin";
+@import "./partial/extend";
+
+#test{
+  @include fontSizeBgColor(50px,#ff0088);
+  &:hover{
+    @include colorTxtDeco(#fff,underline);
+  }
+  @extend %boxShape;
+}

@@ -1,0 +1,28 @@
+body{
+  margin: 50px;
+}
+@mixin textAndBgColor($textColor,$bgColor){
+  color:$textColor;
+  background-color:$bgColor;
+}
+
+@mixin theme($mood) {
+  @if $mood == "light" {
+    @include textAndBgColor(#333,#ffc);
+  }
+  @else if $mood == "dark" {
+    @include textAndBgColor(#ffc,#333);
+  }
+  @else{
+    @include textAndBgColor(rgb(57, 217, 245),rgb(17, 17, 17) )
+  }
+}
+#box1{
+  @include theme("light");
+}
+#box2{
+  @include theme("dark");
+}
+#box3{
+  @include theme("marie");
+}

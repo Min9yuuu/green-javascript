@@ -31,23 +31,26 @@
 let btn = document.querySelectorAll("ul li");
 let panel = document.querySelectorAll("h3");
 
-unVisible()
+unVisible(panel);
 visible(panel[0]);
 
 btn.forEach((el,idx) => {
-  btn[idx].addEventListener("click",function(){
-    unVisible();
+  el.addEventListener("click",function(){
+    unVisible(panel);
     visible(panel[idx]);
   });
 });
 
 function visible(obj) {
-  obj.style.display = "block";
+  obj.length == undefined
+    ? obj.style.display = "block"
+    : obj.forEach((el) => {
+        el.style.display = "none";
+      });
 }
 
-function unVisible() {
-  panel.forEach((el) => {
+function unVisible(obj) {
+  obj.forEach((el) => {
     el.style.display="none"
   });
 }
-

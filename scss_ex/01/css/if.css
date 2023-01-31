@@ -1,0 +1,18 @@
+body {
+  margin: 50px;
+}
+
+#box1 {
+  color: #333;
+  background-color: #ffc;
+}
+
+#box2 {
+  color: #ffc;
+  background-color: #333;
+}
+
+#box3 {
+  color: rgb(57, 217, 245);
+  background-color: rgb(17, 17, 17);
+}/*# sourceMappingURL=if.css.map */
