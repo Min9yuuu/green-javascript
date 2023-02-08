@@ -7,14 +7,18 @@ console.log(request.readyState); //0
 
 //바뀐 응답요청값을 얻을때는 onreadystatechange 속성의
 //readyState메서드를 활용 문법은 아래와 같다.
+// 응답 상태별 처리
 request.onreadystatechange = function () {
   if (request.readyState == 4 && request.status == 200) {
     console.log(this.responseText);
     jsonfunc(this.responseText);
   }
 };
+// 통신 방식과 주소, 회선연결
 request.open("GET", url);
+//  통신실행
 request.send();
+
 //네트워크 통신으로 db받기
 //받은 db를 가공해서 화면에 바인딩
 function jsonfunc(responseText) {
@@ -32,7 +36,7 @@ function jsonfunc(responseText) {
   //table  태그생성 .createElement(없는태그 만들어낼때 사용)
   let table = document.createElement("table");
   //반복문을 사용해서 데이터 바인딩
-  for(i=0; i<jsonTxt.length;i++){
+  for (i = 0; i < jsonTxt.length; i++) {
     id[i] = jsonTxt[i].id;
     first_name[i] = jsonTxt[i].first_name;
     last_name[i] = jsonTxt[i].last_name;
