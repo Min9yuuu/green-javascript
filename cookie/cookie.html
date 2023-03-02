@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쿠키 팝업</title>
+    <script src="./js/cookie.js" defer></script>
+    <style>
+      .popup {
+        position: fixed;
+        left: 100px;
+        top: 100px;
+        border: 1px solid #ebebeb;
+        padding: 40px 60px;
+        /* display: none; */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>뉴진스 - 쿠키</h1>
+    <div class="popup">
+      <h2>내가 만든 쿠키</h2>
+      <input type="checkbox" id="popup" />
+      <label for="popup">오늘하루안보기</label>
+      <button class="close">창닫기</button>
+      <!-- 쿠키가 있으면 재방문 => 팝업 안열기 -->
+      <!-- 쿠기가 없으면 신구방문 -> 팝업 열기 -->
+    </div>
+  </body>
+</html>

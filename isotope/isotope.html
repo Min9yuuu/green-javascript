@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>isotope</title>
+    <link rel="stylesheet" href="css/isotope.css" />
+  </head>
+  <body>
+    <div id="option">
+      <div class="option-set" data-isotope-key="filter">
+        <button data-isotope-value="*">all</button>
+        <button data-isotope-value=".metal">metal</button>
+        <button data-isotope-value=".food">food</button>
+      </div>
+    </div>
+    <div id="container" class="grid">
+      <div class="element element-item metal">01 metal</div>
+      <div class="element element-item metal food">
+        02 metal <br />
+        food
+      </div>
+      <div class="element element-item">03</div>
+      <div class="element element-item food">04 food</div>
+      <div class="element element-item food">05 food</div>
+      <div class="element element-item metal food">06 metal<br />food</div>
+    </div>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="js/isotope.js"></script>
+  </body>
+</html>

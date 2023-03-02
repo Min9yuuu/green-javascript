@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>textarea Event</title>
+  </head>
+  <body>
+    <h1>form 요소의 값 얻어오기</h1>
+    <textarea id="myText">부재 시 문앞에</textarea>
+    <p class="log"></p>
+    <script>
+      const ele = document.querySelector("#myText");
+      const val = ele.value;
+
+      ele.addEventListener("input", evetnHandle);
+      function evetnHandle(e) {
+        const newVal = e.target.value;
+        const tLog = document.querySelector(".log");
+        // 줄바꿈 => 정규 표현식 : 컴퓨터가 화면에 사람이 이해하는 문자를 표현하기 위해 익숙한 표현방식 \n 사용
+        const htmlStr = newVal.split("\n").join("<br />");
+        tLog.innerHTML = `${htmlStr}`;
+      }
+    </script>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script>
+      const el = $("#myText").val();
+      const
+    </script> -->
+  </body>
+</html>
